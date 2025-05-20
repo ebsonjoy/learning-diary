@@ -147,6 +147,20 @@ process.on('message', (data) => {
 | Offload CPU-heavy task (like hashing) | `fork()`      |
 
 
+# ✅ Pros
+- Allows parallel task execution.
+
+- Doesn't block event loop.
+
+- Can use system-level scripts or programs.
+
+# ❌ Cons
+- Overhead of creating new processes.
+
+- Complexity in managing communication and errors.
+
+ -Memory usage can increase.
+
 # ✅ Conclusion
 - child_process gives Node.js the power of multiprocessing.
 
