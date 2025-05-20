@@ -29,7 +29,7 @@
 
 ---
 
-## 📑 Cluster Architecture
+📑 Cluster Architecture
 
                +------------------+
                |  Master Process  |
@@ -40,7 +40,6 @@
 +----------------+ +----------------+ +----------------+
 | Worker Process | | Worker Process | | Worker Process |
 +----------------+ +----------------+ +----------------+
-
 
 
 ---
