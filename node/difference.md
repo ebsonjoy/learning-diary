@@ -1,6 +1,6 @@
-## 🔄1. Difference Between Child Process and Cluster in Node.js
+# 🔄1. Difference Between Child Process and Cluster in Node.js
 
-# 📌 1. Overview
+## 📌 1. Overview
 
 | Feature             | Child Process                             | Cluster                                    |
 |---------------------|--------------------------------------------|--------------------------------------------|
@@ -12,7 +12,7 @@
 | Codebase Sharing    | ❌ Can run different scripts                | ✅ Same Node app across workers             |
 
 
-# 📊 2. Key Differences Summary
+## 📊 2. Key Differences Summary
 
 | Property               | child_process               | cluster                     |
 |------------------------|-----------------------------|-----------------------------|
@@ -23,7 +23,7 @@
 | Share Same App Code    | ❌                          | ✅                          |
 
 
-# 💡 3. Real Life Use
+## 💡 3. Real Life Use
 
 Use `child_process` to:
   - Run a Python script for data processing
@@ -41,21 +41,21 @@ Use `cluster` to:
 
 # 🌐2. HTTP vs HTTPS
 
-# 🔹 What is HTTP?
+## 🔹 What is HTTP?
 
 - HTTP (HyperText Transfer Protocol) is the protocol used to transfer data over the web.
 - Works on port 80 by default.
 - Communication is in plain text (not secure).
 - Used for websites without encryption.
 
-# 🔹 What is HTTPS?
+## 🔹 What is HTTPS?
 
 - HTTPS (HTTP Secure) is HTTP + SSL/TLS encryption.
 - Works on port 443 by default.
 - Encrypts data between client and server.
 - Used for secure websites (online banking, e-commerce, etc).
 
-# ⚙️ How HTTPS Works?
+## ⚙️ How HTTPS Works?
 
 1. Client requests HTTPS connection.
 2. Server sends SSL/TLS certificate.
@@ -63,7 +63,7 @@ Use `cluster` to:
 4. Client and server establish encrypted connection.
 5. Data exchanged securely.
 
-# 📊 Key Differences
+## 📊 Key Differences
 
 | Feature         | HTTP                         | HTTPS                        |
 |-----------------|------------------------------|------------------------------|
@@ -74,7 +74,7 @@ Use `cluster` to:
 | Performance     | Slightly faster              | Slight overhead due to encryption |
 | SEO Ranking     | Lower                       | Higher (preferred by Google) |
 
-# ✅ Advantages of HTTPS
+## ✅ Advantages of HTTPS
 
 - Data privacy and security.
 - Prevents man-in-the-middle attacks.
@@ -82,13 +82,13 @@ Use `cluster` to:
 - Required for PCI compliance (credit card info).
 - Better SEO rankings.
 
-# ⚠️ Disadvantages of HTTPS
+## ⚠️ Disadvantages of HTTPS
 
 - Slightly slower due to encryption overhead.
 - Requires SSL certificates (can be free or paid).
 - More setup complexity.
 
-# 🔧 Real Life Example
+## 🔧 Real Life Example
 
 - Online banking sites use HTTPS to protect user data.
 - E-commerce websites use HTTPS to secure payment info.
@@ -98,7 +98,7 @@ Use `cluster` to:
 
 # ⚙️3. Macrotasks vs Microtasks in Node.js
 
-# 🔍 What are Tasks in Node.js Event Loop?
+## 🔍 What are Tasks in Node.js Event Loop?
 
 - Node.js runs JavaScript code using an event loop.
 - Tasks are units of work scheduled to run.
@@ -106,14 +106,14 @@ Use `cluster` to:
     • Macrotasks (Tasks)
     • Microtasks (Jobs)
 
-# 📝 Macrotasks (Tasks):
+## 📝 Macrotasks (Tasks):
 
 - Examples: setTimeout, setInterval, setImmediate, I/O operations, timers.
 - Macrotasks are scheduled in different phases of the event loop.
 - After executing a macrotask, Node.js processes all microtasks before moving to the next macrotask.
 - Macrotasks have lower priority than microtasks.
 
-# 📝 Microtasks (Jobs):
+## 📝 Microtasks (Jobs):
 
 - Examples: Promises (.then, .catch, .finally), process.nextTick(), queueMicrotask().
 - Microtasks run immediately after the currently executing script or macrotask.
@@ -121,7 +121,7 @@ Use `cluster` to:
 - They help to perform operations that need to happen ASAP after the current code.
 
 
-# 📊 Task Flow Summary
+## 📊 Task Flow Summary
 
 1. Execute current script (synchronous code).
 2. Run all microtasks queue until empty.
@@ -129,7 +129,7 @@ Use `cluster` to:
 4. Repeat steps 2 and 3.
 
 
-# 🔄 Visual Flow:
+## 🔄 Visual Flow:
 
 [ Script Execution ]
         ↓
@@ -141,7 +141,7 @@ Use `cluster` to:
         ↓
 [ Next Macrotask ]
 
-# 💡 Examples:
+## 💡 Examples:
 ```js
 setTimeout(() => console.log('Macrotask: setTimeout'), 0);
 
@@ -159,7 +159,7 @@ console.log('Synchronous: main script');
 
 ```
 
-# 🔑 Key Points:
+## 🔑 Key Points:
 
 - process.nextTick() runs before other microtasks.
 - Microtasks run after every macrotask and script.
@@ -167,7 +167,7 @@ console.log('Synchronous: main script');
 - Understanding task priority helps prevent unexpected async behavior.
 
 
-# 📌 Why It Matters?
+## 📌 Why It Matters?
 
 - Helps write efficient async code.
 - Avoids blocking event loop.
@@ -177,7 +177,7 @@ console.log('Synchronous: main script');
 
 # 🔐4. Authentication vs Authorization
 
-# 🧾 Definitions
+## 🧾 Definitions
 
 👉 Authentication:
    - Process of **verifying identity**.
@@ -191,7 +191,7 @@ console.log('Synchronous: main script');
    - Happens **after authentication**.
    - Example: "Now that you are authenticated, what are you allowed to do?"
 
-# 🔄 Flow Summary:
+## 🔄 Flow Summary:
 
 [ User Login Form ]
         ↓
@@ -204,13 +204,13 @@ console.log('Synchronous: main script');
 📄 Allow/deny access to specific routes/pages/resources
 
 
-# 🧠 Real-Life Analogy:
+## 🧠 Real-Life Analogy:
 
 🪪 Authentication → Showing your ID at a security gate.
 🔑 Authorization → Being allowed into specific rooms based on your ID.
 
 
-# 🔍 Key Differences:
+## 🔍 Key Differences:
 
 | Feature           | Authentication                   | Authorization                    |
 |------------------|-----------------------------------|----------------------------------|
@@ -220,7 +220,7 @@ console.log('Synchronous: main script');
 | Example          | Login with email & password       | Can access admin panel or not    |
 | Output           | Logged-in user                    | Access granted/denied            |
 
-# 🛠️ Implementation Examples in Web App (Node.js):
+## 🛠️ Implementation Examples in Web App (Node.js):
 
 🧾 Authentication:
    - Check user credentials from DB
@@ -233,7 +233,7 @@ console.log('Synchronous: main script');
    - Allow or restrict access to specific API routes
 
 
-# ✔️ Advantages:
+## ✔️ Advantages:
 
 ✅ Authentication:
    - Ensures only real users access the system.
@@ -251,7 +251,7 @@ console.log('Synchronous: main script');
 
 # 🧵5. Concurrency vs Parallelism
 
-# 📘 Definitions:
+## 📘 Definitions:
 
 🔄 Concurrency:
    - The ability of a system to **handle multiple tasks at once**, by switching between them.
@@ -264,7 +264,7 @@ console.log('Synchronous: main script');
    - Think of it as **true simultaneous execution**.
 
 
-# 🧠 Real-Life Analogy:
+## 🧠 Real-Life Analogy:
 
 🍽️ Concurrency:
    - A single waiter handles multiple tables by moving between them quickly.
@@ -275,14 +275,14 @@ console.log('Synchronous: main script');
    - True simultaneous service.
 
 
-# 🧵 Concurrency (Example - JavaScript / Node.js):
+## 🧵 Concurrency (Example - JavaScript / Node.js):
    - Node.js handles multiple requests using an event loop (non-blocking I/O).
    - Even with a single-threaded model, it can handle many connections concurrently.
 
-# ⚙️ Parallelism (Example - Node.js with Worker Threads / Cluster):
+## ⚙️ Parallelism (Example - Node.js with Worker Threads / Cluster):
    - Worker threads or clustering allows real parallel execution using multiple cores.
 
-# 📊 Comparison Table:
+## 📊 Comparison Table:
 
 | Feature           | Concurrency                         | Parallelism                         |
 |------------------|-------------------------------------|-------------------------------------|
@@ -292,7 +292,7 @@ console.log('Synchronous: main script');
 | Best For          | I/O-bound tasks                     | CPU-bound tasks                     |
 | Execution         | Interleaving tasks                  | Simultaneous task execution         |
 
-# 🛠️ Where It Matters in Node.js:
+## 🛠️ Where It Matters in Node.js:
 
 ✅ Concurrency:
    - Handled through event loop, async/await, Promises, non-blocking I/O.
@@ -304,7 +304,7 @@ console.log('Synchronous: main script');
      - `child_process`
 
 
-# ✅ Advantages:
+## ✅ Advantages:
 
 🔄 Concurrency:
    - Efficient use of resources.
