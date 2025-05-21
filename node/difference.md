@@ -326,3 +326,95 @@ console.log('Synchronous: main script');
 
 
 
+# 🗂️6. localStorage vs sessionStorage
+
+## 🔍 What are they?
+
+➡️ Both are part of the Web Storage API.
+➡️ They allow storing key-value pairs in the browser.
+➡️ Data is stored in **string format only**.
+
+## 📦 localStorage
+
+• Stores data with **no expiration** time.
+• Data persists even after the browser/tab is closed and reopened.
+• Shared across all tabs/windows of the same origin.
+
+🧪 Example:
+localStorage.setItem("user", "Ebson");
+localStorage.getItem("user");     // "Ebson"
+localStorage.removeItem("user");  // Removes item
+localStorage.clear();             // Clears all data
+
+## 📦 sessionStorage
+
+• Stores data for **only one session** (until tab/window is closed).
+• Not shared across tabs/windows.
+• Useful for temporary/session-based data.
+
+🧪 Example:
+sessionStorage.setItem("cart", "5 items");
+sessionStorage.getItem("cart");     // "5 items"
+sessionStorage.removeItem("cart");
+sessionStorage.clear();
+
+# 📘7. npm vs npx
+
+## 🔍 What is npm?
+
+📦 npm = Node Package Manager  
+➡️ Used to install, update, and manage packages/modules for Node.js
+
+🛠️ Common npm commands:
+
+- $ npm init               # Create package.json
+- $ npm install lodash     # Install a package locally
+- $ npm install -g nodemon # Install globally
+- $ npm uninstall axios    # Remove a package
+- $ npm update             # Update all packages
+
+📁 Local packages → Stored in ./node_modules
+📁 Global packages → Stored in system path
+
+
+## 🔍 What is npx?
+
+⚡ npx = Node Package Executor  
+➡️ Runs npm packages **without installing them** permanently
+
+🧪 Example:
+
+- $ npx create-react-app myapp
+✅ Runs the package temporarily, no need to install globally
+
+💡 Good for:
+• Running CLI tools once
+• Avoiding global pollution
+• Always using the latest version
+
+## 🆚 npm vs npx
+
+| Feature         | npm                           | npx                                 |
+|----------------|-------------------------------|--------------------------------------|
+| Role            | Installs and manages packages | Executes a package directly          |
+| Installs?       | Yes                           | No (runs & deletes after use)        |
+| Scope           | Local or global               | Temporary use                        |
+| Use Case        | Installing dependencies       | Running CLI tools/scripts easily     |
+
+## 📦 Real Life Example
+
+### 🎯 With npm (needs global install):
+- $ npm install -g create-react-app
+- $ create-react-app myapp
+
+### 🎯 With npx (no install needed):
+- $ npx create-react-app myapp
+
+✅ Faster and cleaner with npx
+
+## 🧠 Summary
+
+✔ Use `npm` to install/manage packages  
+✔ Use `npx` to run one-time or CLI tools  
+✔ `npx` saves time, avoids global clutter  
+
