@@ -1,4 +1,4 @@
-# 🔄 Difference Between Child Process and Cluster in Node.js
+# 🔄1. Difference Between Child Process and Cluster in Node.js
 
 # 📌 1. Overview
 
@@ -12,7 +12,7 @@
 | Codebase Sharing    | ❌ Can run different scripts                | ✅ Same Node app across workers             |
 
 
-# 📊 4. Key Differences Summary
+# 📊 2. Key Differences Summary
 
 | Property               | child_process               | cluster                     |
 |------------------------|-----------------------------|-----------------------------|
@@ -23,7 +23,7 @@
 | Share Same App Code    | ❌                          | ✅                          |
 
 
-# 💡 5. Real Life Use
+# 💡 3. Real Life Use
 
 Use `child_process` to:
   - Run a Python script for data processing
@@ -39,7 +39,7 @@ Use `cluster` to:
 ---
 
 
-# 🌐 HTTP vs HTTPS
+# 🌐2. HTTP vs HTTPS
 
 # 🔹 What is HTTP?
 
@@ -96,7 +96,7 @@ Use `cluster` to:
 
 ---
 
-# ⚙️ Macrotasks vs Microtasks in Node.js
+# ⚙️3. Macrotasks vs Microtasks in Node.js
 
 # 🔍 What are Tasks in Node.js Event Loop?
 
@@ -175,7 +175,7 @@ console.log('Synchronous: main script');
 
 ---
 
-# 🔐 Authentication vs Authorization
+# 🔐4. Authentication vs Authorization
 
 # 🧾 Definitions
 
@@ -249,7 +249,7 @@ console.log('Synchronous: main script');
 
 ---
 
-# 🧵 Concurrency vs Parallelism
+# 🧵5. Concurrency vs Parallelism
 
 # 📘 Definitions:
 
