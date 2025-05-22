@@ -324,6 +324,7 @@ console.log('Synchronous: main script');
    - More memory and CPU usage.
    - Needs synchronization between threads or processes.
 
+---
 
 
 # 🗂️6. localStorage vs sessionStorage
@@ -358,6 +359,9 @@ sessionStorage.getItem("cart");     // "5 items"
 sessionStorage.removeItem("cart");
 sessionStorage.clear();
 
+---
+
+
 # 📘7. npm vs npx
 
 ## 🔍 What is npm?
@@ -373,8 +377,8 @@ sessionStorage.clear();
 - $ npm uninstall axios    # Remove a package
 - $ npm update             # Update all packages
 
-📁 Local packages → Stored in ./node_modules
-📁 Global packages → Stored in system path
+- 📁 Local packages → Stored in ./node_modules
+- 📁 Global packages → Stored in system path
 
 
 ## 🔍 What is npx?
