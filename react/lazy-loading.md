@@ -17,11 +17,11 @@ Lazy Loading is a design pattern that delays the loading of components or data u
 
 👉 React provides built-in functions for lazy loading:
 - React.lazy()
-- <Suspense />
+- Suspense 
 
-## 🧱 What is <Suspense> in React?
+## 🧱 What is Suspense in React?
 
-<Suspense> is a **React component** used to wrap **lazy-loaded components** and handle their **loading state**.
+Suspense is a **React component** used to wrap **lazy-loaded components** and handle their **loading state**.
 
 📦 Purpose:
 - To show a fallback UI (like a loader) while a lazy component is being fetched.
