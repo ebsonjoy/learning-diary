@@ -59,17 +59,17 @@ function App() {
 ```
 ## 🛠️ Real-life Example:
 
-🖼️ Lazy load images on scroll
-🧭 Lazy load routes (pages)
-📦 Lazy load components in large apps
+- 🖼️ Lazy load images on scroll
+- 🧭 Lazy load routes (pages)
+- 📦 Lazy load components in large apps
 
 
 ## 🎯 Advantages of Lazy Loading:
 
-✔ Faster initial page load
-✔ Loads only what's needed
-✔ Less memory usage
-✔ Good for large-scale applications
+- ✔ Faster initial page load
+- ✔ Loads only what's needed
+- ✔ Less memory usage
+- ✔ Good for large-scale applications
 
 
 ## ⚠️ Disadvantages:

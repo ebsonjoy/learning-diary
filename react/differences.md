@@ -107,6 +107,7 @@ However, they have key differences in **timing and behavior**.
 - Runs **synchronously after rendering** but **before the browser paints** the screen.
 - Mainly used for **DOM measurements or mutations** that need to block the browser from painting.
 
+NB : Scree Painting Means You tell React something changed → React updates it → You see it → That's painting the screen.
 ---
 
 ## 2. 🕒 Timing Difference
