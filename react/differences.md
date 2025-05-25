@@ -3,7 +3,8 @@
 - 2.State vs Props
 - 3.useEffect vs useLayoutEffect
 - 4.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
--  5.Props vs State
+- 5.Props vs State
+- 6.localStorage vs sessionStorage (Browser)
 
 # 1.Class Components vs Functional Components
 
@@ -305,3 +306,27 @@ State = Managed inside the component (internal, changeable).
 🔁 Use state when you want your component to be interactive or dynamic.
 
 ---
+# 🗃️ 6.localStorage vs sessionStorage (Browser)
+
+| Feature              | `localStorage`                                                | `sessionStorage`                                    |
+| -------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
+| 🕒 **Lifespan**      | Data is stored **permanently** (until manually cleared)       | Data is stored **only for the current tab session** |
+| ❌ **Auto-Clears**    | ❌ No – stays after page reload, tab close, or browser restart | ✅ Yes – clears when the **tab or window is closed** |
+| 📁 **Storage Scope** | Shared across **all tabs/windows** of the same origin         | Only available to the **same tab**                  |
+| 📦 **Size Limit**    | Around **5–10 MB**                                            | Around **5 MB**                                     |
+| 📚 **Use Case**      | Save long-term data (e.g. theme, token, user settings)        | Save temporary data (e.g. OTP, form draft)          |
+
+
+## 🧠 Example
+```js
+// ✅ localStorage
+localStorage.setItem("username", "Ebson");
+console.log(localStorage.getItem("username")); // Ebson
+//This stays even after you refresh or close and reopen the browser.
+
+// ✅ sessionStorage
+sessionStorage.setItem("otp", "123456");
+console.log(sessionStorage.getItem("otp")); // 123456
+//This disappears when you close the tab.
+---
+

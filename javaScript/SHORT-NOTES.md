@@ -158,3 +158,60 @@ console.log(counter.next().value); // undefined
 - yield returns a value and pauses.
 
 - .next() resumes the function from where it paused.
+
+---
+
+# 🔍 6.Pure vs Impure Functions
+
+## ✅ What is a Pure Function?
+- A pure function is a function that:
+
+  1. Always returns the same output for the same input
+
+  2. Does not cause side effects (like changing a global variable, modifying DOM, making API calls, writing to a file, etc.)
+
+## 🔁 Example of a Pure Function:
+
+```js
+
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(2, 3)); // 5
+console.log(add(2, 3)); // 5 (same output every time)
+// 📌 It doesn’t modify any external state. It just takes input and returns output.
+```
+
+## ❌ What is an Impure Function?
+
+#### An impure function:
+
+1. May return different output even if input is same
+
+2. May have side effects like:
+
+  - Modifying global variables
+
+  - Making network calls
+
+  - Mutating input data
+
+  - Changing the DOM
+
+  - Writing logs, etc.
+
+## 🔁 Example of an Impure Function:
+
+```js
+let counter = 0;
+
+function increaseCounter() {
+  counter++;
+  return counter;
+}
+
+console.log(increaseCounter()); // 1
+console.log(increaseCounter()); // 2
+// 📌 Here the output changes even if there are no inputs — and it modifies an external variable, which is a side effect.
+```
