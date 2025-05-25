@@ -1,3 +1,5 @@
+# JavaScript Built-in Methods
+
 ## ✅ LEGEND:
 - (value) = required
 
@@ -18,9 +20,9 @@
 | `includes(searchValue, start?)`      | Checks if string contains value          | `(searchValue: string, start?: number)`      |                             |
 | `startsWith(searchValue, start?)`    | Checks if string starts with value       | `(searchValue: string, start?: number)`      |                             |
 | `endsWith(searchValue, length?)`     | Checks if ends with value                | `(searchValue: string, length?: number)`     |                             |
-| `replace(searchValue, newValue)`     | Replaces first occurrence                | \`(searchValue: string                       | RegExp, newValue: string)\` |
-| `replaceAll(searchValue, newValue)`  | Replaces all occurrences                 | \`(searchValue: string                       | RegExp, newValue: string)\` |
-| `split(separator, limit?)`           | Splits string into array                 | \`(separator: string                         | RegExp, limit?: number)\`   |
+| `replace(searchValue, newValue)`     | Replaces first occurrence                | `(searchValue: string RegExp, newValue: string)` |
+| `replaceAll(searchValue, newValue)`  | Replaces all occurrences                 | `(searchValue: string RegExp, newValue: string)` |
+| `split(separator, limit?)`           | Splits string into array                 | `(separator: string RegExp, limit?: number)`   |
 | `toUpperCase()`                      | Converts to uppercase                    | `()`                                         |                             |
 | `toLowerCase()`                      | Converts to lowercase                    | `()`                                         |                             |
 | `trim()`                             | Removes whitespace                       | `()`                                         |                             |
