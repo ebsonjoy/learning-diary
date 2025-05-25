@@ -1,10 +1,12 @@
 # Topics
-- 1.Cleanup Function in React
-- 2.Prevent Prop Drilling in React
-- 3.Higher Order Component (HOC) in React
-- 4.Conditional Rendering in React
-- 5.Render Props in React
-- 6.Synthetic Events in React
+- 1.Cleanup Function
+- 2.Prevent Prop Drilling
+- 3.Higher Order Component (HOC)
+- 4.Conditional Rendering
+- 5.Render Props
+- 6.Synthetic Events
+- 7.Rules of Hooks
+- 8.React.StrictMode
 
 ---
 # 1.Cleanup Function in React
@@ -213,4 +215,61 @@ function ClickButton() {
 - React’s event object is called a SyntheticEvent.
 - It works like the native event but is consistent across browsers.
 - Synthetic events are pooled for performance (reused internally).
+
+---
+
+# 7.Rules of Hooks
+
+## What are Hooks?
+Hooks are functions that let you **use state and other React features** in functional components.
+
+## Rules of Hooks
+
+### 1. **Only call Hooks at the top level**
+- Do **not** call Hooks inside loops, conditions, or nested functions.
+- Always call them at the **top level** of your component.
+
+✅ Correct:
+```js
+function MyComponent() {
+  const [count, setCount] = useState(0);
+}
+```
+
+---
+
+# 8.React.StrictMode
+
+## What is it?
+`React.StrictMode` is a **tool provided by React to help developers write better code**.  
+It **does not show any UI** — it's only used in **development mode** (not in production).
+
+## What does it do?
+It helps you find and fix:
+- **Unsafe or outdated lifecycle methods**
+- **Side effects** that happen during rendering
+- **Incorrect usage of hooks**
+- **Deprecated APIs**
+
+It makes React **stricter in development** to catch bugs early.
+
+## How does it work?
+- It **intentionally runs components twice** (only in development) to check for side effects.
+- It shows **warnings** in the browser console if it finds any issues.
+
+## Where is it used?
+You wrap your app or part of it in `<React.StrictMode>` in the root file:
+
+### Example:
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
