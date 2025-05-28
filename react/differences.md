@@ -1,16 +1,13 @@
 # Topics
 - 1.Class Components vs Functional Components
-- 2.State vs Props
-- 3.useEffect vs useLayoutEffect
-- 4.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
-- 5.Props vs State
-- 6.localStorage vs sessionStorage (Browser)
+- 2.useEffect vs useLayoutEffect
+- 3.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
+- 4.Props vs State
+- 5.localStorage vs sessionStorage (Browser)
 
 # 1.Class Components vs Functional Components
 
 React supports two types of components: **Class Components** and **Functional Components**. Below is a detailed comparison of both.
-
----
 
 ## 1. 🔤 **Syntax**
 
@@ -47,63 +44,12 @@ function MyComponent() {
 
 ---
 
-# 🟦 2.State vs Props in React
 
-In React, both **state** and **props** are used to manage and pass data in components, but they serve different purposes.
-
----
-
-## 1. 📦 **Definition**
-
-### 🧠 State
-- A built-in object to store data **within a component**.
-- It is **mutable** (can be changed).
-- Managed **inside** the component using `useState` (in functional components) or `this.state` (in class components).
-
-### 📬 Props
-- Short for **properties**.
-- Used to pass data **from parent to child** components.
-- They are **read-only** (immutable).
-
----
-
-## 2. 🛠️ **How to Use**
-
-### ✅ Using State (Functional Component)
-```jsx
-import { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  return <button onClick={() => setCount(count + 1)}>{count}</button>;
-}
-```
-### ✅ Using Props
-```js
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
-// Usage:
-<Welcome name="Ebson" />
-```
-## ✅ Summary Table
-| Feature           | State                           | Props                   |
-| ----------------- | ------------------------------- | ----------------------- |
-| Definition        | Local data of the component     | Data passed from parent |
-| Mutability        | Mutable (can be changed)        | Immutable (read-only)   |
-| Used for          | Internal data and interactivity | External configuration  |
-| Updated by        | Component itself                | Parent component        |
-| Causes re-render? | Yes                             | Yes                     |
-
----
-
-#  🔄 3.useEffect vs useLayoutEffect
+#  🔄 2.useEffect vs useLayoutEffect
 
 Both `useEffect` and `useLayoutEffect` are React Hooks used to run side effects in functional components.  
 However, they have key differences in **timing and behavior**.
 
----
 
 ## 1. 📜 Basic Definitions
 
@@ -116,7 +62,7 @@ However, they have key differences in **timing and behavior**.
 - Mainly used for **DOM measurements or mutations** that need to block the browser from painting.
 
 NB : Scree Painting Means You tell React something changed → React updates it → You see it → That's painting the screen.
----
+
 
 ## 2. 🕒 Timing Difference
 
@@ -159,7 +105,7 @@ Component rendered → useLayoutEffect runs → Screen painted
 | Preferred for general use | ✅ Yes               | ❌ Only when necessary          |
 
 ---
-# 🌐 4.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
+# 🌐 3.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
 
 Both SSR and CSR are methods to render web pages, but they differ in **where** and **when** the HTML is generated.
 
@@ -236,7 +182,7 @@ Both SSR and CSR are methods to render web pages, but they differ in **where** a
 - Use **CSR** for dynamic, interactive apps like dashboards or social media.
 ---
 
-# ⚛️ 5.Props vs State
+# ⚛️ 4.Props vs State
 
 In React, both `props` and `state` are used to control data in components — but they serve different purposes.
 
@@ -306,7 +252,7 @@ State = Managed inside the component (internal, changeable).
 🔁 Use state when you want your component to be interactive or dynamic.
 
 ---
-# 🗃️ 6.localStorage vs sessionStorage (Browser)
+# 🗃️ 5.localStorage vs sessionStorage (Browser)
 
 | Feature              | `localStorage`                                                | `sessionStorage`                                    |
 | -------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
@@ -328,5 +274,6 @@ console.log(localStorage.getItem("username")); // Ebson
 sessionStorage.setItem("otp", "123456");
 console.log(sessionStorage.getItem("otp")); // 123456
 //This disappears when you close the tab.
+```
 ---
 
