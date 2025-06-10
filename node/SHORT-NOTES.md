@@ -15,6 +15,7 @@
 14. Query Params vs Path Params
 15. CORS (Cross-Origin Resource Sharing)
 16. Preflight Request
+17. Dynamic Routing
 
 ## 1.What is Node.js?
 Node.js is a JavaScript runtime built on Chrome's V8 engine. It allows you to run JavaScript on the server side. Node.js uses a non-blocking, event-driven architecture, which makes it efficient and suitable for scalable network applications.
@@ -483,3 +484,16 @@ Access-Control-Allow-Methods: PUT
 
 ---
 
+#  17.Dynamic Routing
+
+**What:**  
+Dynamic routing means creating routes that can handle **changing values in the URL** like user ID, product ID, etc.
+
+**Where used:**  
+Used when you want to get or show data based on a specific value in the URL.
+
+**Syntax (Express.js):**
+```js
+app.get('/user/:id', (req, res) => {
+  res.send('User ID is ' + req.params.id);
+});

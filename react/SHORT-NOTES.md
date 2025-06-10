@@ -1,12 +1,13 @@
 # Topics
-- 1.Cleanup Function
-- 2.Prevent Prop Drilling
-- 3.Higher Order Component (HOC)
-- 4.Conditional Rendering
-- 5.Render Props
-- 6.Synthetic Events
-- 7.Rules of Hooks
-- 8.React.StrictMode
+1. Cleanup Function
+2. Prevent Prop Drilling
+3. Higher Order Component (HOC)
+4. Conditional Rendering
+5. Render Props
+6. Synthetic Events
+7. Rules of Hooks
+8. React.StrictMode
+9. Why Arrays and Objects Are Copied When Updating State in React
 
 ---
 # 1.Cleanup Function in React
@@ -273,3 +274,41 @@ root.render(
   </React.StrictMode>
 );
 
+```
+---
+
+# 9.Why Arrays and Objects Are Copied When Updating State in React
+
+**What:**  
+In React, we should **not directly change** (mutate) arrays or objects in state.  
+Instead, we create a **copy**, make changes to that, and then update the state.
+
+---
+
+**Why is this important?**
+
+React decides whether to re-render a component by checking if the state or props have **changed**.  
+But it checks this by comparing the **reference** (memory address), not the actual content.
+
+If you **mutate** the original object/array:
+- The reference stays the same.
+- React thinks nothing changed.
+- So, the component **won’t re-render**.
+
+---
+
+**Solution: Make a new copy!**  
+This gives React a **new reference**, so it can detect the change and re-render correctly.
+
+---
+
+**Example (Array):**
+```js
+// Wrong way - mutates original array
+users.push('Ebson'); 
+setUsers(users); // ❌ React may not re-render
+
+// Correct way - creates a new array
+setUsers([...users, 'Ebson']); // ✅ React re-renders
+```
+---
