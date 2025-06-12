@@ -8,6 +8,7 @@
 7. Rules of Hooks
 8. React.StrictMode
 9. Why Arrays and Objects Are Copied When Updating State in React
+10. Event Pooling
 
 ---
 # 1.Cleanup Function in React
@@ -311,4 +312,45 @@ setUsers(users); // ❌ React may not re-render
 // Correct way - creates a new array
 setUsers([...users, 'Ebson']); // ✅ React re-renders
 ```
+---
+# 10. Event Pooling
+
+### what is Event Pooling
+
+🧠 Simple Explanation:
+In older versions of React (before version 17), when you click a button or type in an input, React creates an event object and sends it to your function.
+But to save memory, React reused the same event object for all future events — this is called event pooling.
+
+So, if you used the event inside a setTimeout or an async call, the event would be cleared before your code ran.
+That means you could not access e.target, e.type, etc. anymore.
+
+**What:**  
+In older React versions (before 17), React reused event objects to save memory.  
+This is called **event pooling**.
+
+**Problem:**  
+The event object was **cleared** after the event handler finished.  
+So if you used it later (like in `setTimeout`), it would not work.
+
+**Example (React < 17):**
+```js
+function handleClick(e) {
+  setTimeout(() => {
+    console.log(e.target); // ❌ Won’t work
+  }, 1000);
+}
+
+
+// ✅ Fix using e.persist():
+function handleClick(e) {
+  e.persist(); // Keeps the event object alive
+  setTimeout(() => {
+    console.log(e.target); // ✅ Now it works
+  }, 1000);
+}
+```
+**✅ In React 17+:**
+You don’t need e.persist() anymore because event pooling is removed.
+You can safely use e.target inside setTimeout, async functions, etc.
+
 ---

@@ -12,10 +12,9 @@
 11. Morgan
 12. HTTP OPTIONS Method
 13. Error-First Callback
-14. Query Params vs Path Params
-15. CORS (Cross-Origin Resource Sharing)
-16. Preflight Request
-17. Dynamic Routing
+14. CORS (Cross-Origin Resource Sharing)
+15. Preflight Request
+16. Dynamic Routing
 
 ## 1.What is Node.js?
 Node.js is a JavaScript runtime built on Chrome's V8 engine. It allows you to run JavaScript on the server side. Node.js uses a non-blocking, event-driven architecture, which makes it efficient and suitable for scalable network applications.
@@ -344,61 +343,8 @@ function callback(err, result) {
 }
 ```
 ---
-# 14.Query Params vs Path Params
 
-## What are they?
-Both are used to **send data in URLs**, but they are used in **different ways**.
-
----
-
-## 📌 Path Params:
-- Part of the **URL path**
-- Used to **identify a specific resource**
-- Defined using `:paramName`
-
-### Example:
-```js
-// Express route
-app.get('/user/:id', (req, res) => {
-  const userId = req.params.id;
-  res.send(`User ID: ${userId}`);
-});
-
-// URL: /user/123 → id = 123
-
-```
-
-## 📌 Query Params:
-- Part of the URL after the ?
-
-- Used to filter or sort data
-
-- Not required
-
-### Example:
-
-```js
-// Express route
-app.get('/search', (req, res) => {
-  const keyword = req.query.q;
-  res.send(`Searching for: ${keyword}`);
-});
-
-// URL: /search?q=watch → q = watch
-
-```
-
-## 🔍 Summary:
-
-| Feature        | Path Params       | Query Params         |
-| -------------- | ----------------- | -------------------- |
-| Format         | `/user/:id`       | `/search?q=watch`    |
-| Usage          | Identify resource | Filter, sort, search |
-| Access in code | `req.params`      | `req.query`          |
-
----
-
-# 15.CORS (Cross-Origin Resource Sharing)
+# 14.CORS (Cross-Origin Resource Sharing)
 
 ## What is CORS?
 **CORS** is a **security feature** in browsers that controls whether a web page can **make requests to a different domain** than the one it was loaded from.
@@ -438,7 +384,7 @@ app.use(cors({
 ---
 
 
-# 16.Preflight Request
+# 15.Preflight Request
 
 ## What is it?
 A **preflight request** is an automatic HTTP request sent by the **browser before the actual request**, to **check if the server allows the real request**.
@@ -484,7 +430,7 @@ Access-Control-Allow-Methods: PUT
 
 ---
 
-#  17.Dynamic Routing
+#  16.Dynamic Routing
 
 **What:**  
 Dynamic routing means creating routes that can handle **changing values in the URL** like user ID, product ID, etc.

@@ -1,9 +1,10 @@
 # Topics
-- 1.Class Components vs Functional Components
-- 2.useEffect vs useLayoutEffect
-- 3.SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
-- 4.Props vs State
-- 5.localStorage vs sessionStorage (Browser)
+- 1. Class Components vs Functional Components
+- 2. useEffect vs useLayoutEffect
+- 3. SSR vs CSR (Server-Side Rendering vs Client-Side Rendering)
+- 4. Props vs State
+- 5. localStorage vs sessionStorage (Browser)
+- 6. Controlled vs Uncontrolled Components 
 
 # 1.Class Components vs Functional Components
 
@@ -276,4 +277,183 @@ console.log(sessionStorage.getItem("otp")); // 123456
 //This disappears when you close the tab.
 ```
 ---
+# 6. Controlled vs Uncontrolled Components
 
+## 📘 What is a Controlled Component?
+
+A **controlled component** is a React component whose form data is **handled by the React component's state**. In these components, the value of an input field (like `<input>`, `<textarea>`, or `<select>`) is controlled by React via the `useState` hook (or `this.state` in class components).
+
+### 🔧 How It Works
+- The value of the input is set using a state variable.
+- Any changes to the input are handled using `onChange`, which updates the state.
+- The input always reflects the current state.
+
+### ✅ Example:
+```jsx
+import { useState } from 'react';
+
+function ControlledInput() {
+  const [name, setName] = useState('');
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+
+  return (
+    <input type="text" value={name} onChange={handleChange} />
+  );
+}
+```
+## 📘 What is an Uncontrolled Component?
+An uncontrolled component is a form element where data is handled by the DOM itself, not by React. You can still access the value using a ref (useRef) when needed, but React doesn't control the input’s current value during typing.
+
+### 🔧 How It Works
+- The input maintains its own state internally (like normal HTML).
+
+- React can read the value when needed using a ref, but it doesn’t control the value.
+
+### ✅ Example:
+```js
+import { useRef } from 'react';
+
+function UncontrolledInput() {
+  const inputRef = useRef(null);
+
+  const handleSubmit = () => {
+    alert('Input value: ' + inputRef.current.value);
+  };
+
+  return (
+    <>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+}
+```
+## 🔍 Differences Between Controlled and Uncontrolled Components
+
+| Feature                  | Controlled Component             | Uncontrolled Component                     |
+| ------------------------ | -------------------------------- | ------------------------------------------ |
+| Value managed by         | React state                      | DOM (default HTML behavior)                |
+| Real-time validation     | Easy to implement                | Harder to do                               |
+| Refs used?               | Not usually                      | Yes (useRef)                               |
+| Easier to test?          | ✅ Yes                            | ❌ No                                       |
+| Need for initial default | Use `useState`                   | Use `defaultValue` or `defaultChecked`     |
+| Example Usage            | Login forms, filters, validation | Quick data access, third-party integration |
+
+## 🧠 When to Use What?
+
+| Scenario                                   | Recommended Component |
+| ------------------------------------------ | --------------------- |
+| You need instant validation                | Controlled            |
+| You want to manipulate input conditionally | Controlled            |
+| Working with 3rd-party DOM libraries       | Uncontrolled          |
+| Need fast simple form without validation   | Uncontrolled          |
+| Managing dynamic form inputs               | Controlled            |
+
+
+## ⚙️ Summary
+- Controlled Components give you full control using React state, perfect for validations, dynamic input rendering, and real-time data updates.
+
+- Uncontrolled Components are quicker to set up and rely on traditional HTML form behavior with refs for occasional value access.
+
+- Controlled is preferred in most React apps for consistency and better state management.
+
+---
+# 7.Stateless vs Stateful Components
+
+
+## 📘 What is a Stateless Component?
+
+A **stateless component** is a React component that does **not manage or hold any state**. It simply receives data via props and renders UI. These are sometimes called **presentational components**.
+
+### 🔧 Characteristics:
+- No use of `useState`, `useReducer`, or `this.state`.
+- Pure functions: same output for same input (props).
+- Mainly used for UI presentation.
+- Easier to test and reuse.
+
+### ✅ Example:
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+## 📘 What is a Stateful Component?
+
+- A stateful component is a component that manages its own state. It can change its state over time, usually in response to user interaction or API calls.
+
+### 🔧 Characteristics:
+- Uses useState, useReducer, or this.state.
+
+- Controls behavior/data inside the component.
+
+- Often manages logic, user input, and rendering.
+### ✅ Example:
+```js
+
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </>
+  );
+}
+```
+### 🔍 Differences Between Stateless and Stateful Components
+
+| Feature           | Stateless Component           | Stateful Component     |
+| ----------------- | ----------------------------- | ---------------------- |
+| Manages state?    | ❌ No                          | ✅ Yes                  |
+| Use of `useState` | Not used                      | Used                   |
+| Complexity        | Simple                        | Can be complex         |
+| Focus             | UI/Presentation only          | Data, logic, and UI    |
+| Testability       | Easier                        | Slightly harder        |
+| Example           | `Welcome`, `Button`, `Header` | `Counter`, `LoginForm` |
+
+### 🧠 When to Use What?
+
+| Scenario                                      | Recommended Component |
+| --------------------------------------------- | --------------------- |
+| Pure UI rendering, with no interaction        | Stateless             |
+| Needs interaction or internal data management | Stateful              |
+| Reusable, easy-to-test UI blocks              | Stateless             |
+| Components like modals, toggles, forms        | Stateful              |
+
+### 🔄 Can They Be Combined?
+
+Yes! In large apps, stateless components are often nested inside stateful components. This improves separation of concerns.
+
+### ✅ Example:
+
+```js
+function Display({ count }) {
+  return <p>Current count: {count}</p>;
+}
+
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <Display count={count} />
+      <button onClick={() => setCount(count + 1)}>+1</button>
+    </>
+  );
+}
+
+```
+### ⚙️ Summary
+- Stateless Components are simple, reusable, and focus on what to show.
+
+- Stateful Components manage state and define how things behave.
+
+- A good practice is to keep most components stateless and use state only where absolutely needed.
+
+- "Use stateless components for structure and styling; use stateful components for behavior."
